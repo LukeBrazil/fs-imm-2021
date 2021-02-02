@@ -13,6 +13,7 @@ def calculate():
         result = first_number / second_number
     else:
         print('idk what just happened')
+        
     print(f"Result: {result}")
 
     

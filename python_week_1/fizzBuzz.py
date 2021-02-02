@@ -1,7 +1,7 @@
 number = int(input('Please enter a number: '))
 
 def fizzBuzz(number):
-    if number % 3 == 0 & number % 5 == 0:
+    if number % 3 == 0 and number % 5 == 0:
         print('FizzBuzz')
     elif number % 3 == 0:
         print('Fizz')

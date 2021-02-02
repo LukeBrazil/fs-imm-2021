@@ -1,5 +1,5 @@
 amount = int(input('Enter Bill Amount: '))
-tip = input('Enter tip percentage: a = 10%, b = 15%, c = 20%, d = $25:  ')
+tip = input('Enter tip percentage: a = 10%, b = 15%, c = 20%, d = 25%:  ')
 
 def calculateTip():
     if tip == 'a':
@@ -16,3 +16,4 @@ def calculateTip():
     print(f'The total amount: ${total_amount} and the amount you tipped is ${tip_amount}')
 
 calculateTip()
+
