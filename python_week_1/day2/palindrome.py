@@ -16,4 +16,4 @@ def isPalindrome(textInput, newString):
         return False
 
 
-isPalindrome(textInput, newString)
+print(isPalindrome(textInput, newString))
