@@ -1,5 +1,3 @@
-
-
 # Add task to list
 def add(todo, x, y):
     todo[x] = y
