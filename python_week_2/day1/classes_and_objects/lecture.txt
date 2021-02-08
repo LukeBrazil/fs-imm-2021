@@ -1,0 +1,64 @@
+
+# CLASSES/CLASS 
+
+# Class is a blue print to represent something. 
+
+Car: 
+    - model 
+    - make 
+    - vin
+    - color 
+
+Object is a concrete implementation of a class 
+Object represents a PARTICULAR CAR 
+
+car = Car() 
+car.make = "Tesla" 
+car.model = "Model X" 
+car.vin = "e223234eeee"
+car.color = "blue" 
+
+Table # Table is a class/blueprint. Class name should always begin with capital letter and classes are always singular 
+
+    - color
+    - style 
+    - height 
+    - material 
+    - width 
+    - manufacturer 
+
+Wood Rectangular Table Using Table Blueprint 
+ - color = brown
+ - style = american 
+ - height = 44 inches 
+ - material = cherry wood 
+ - width = 20 inches 
+ - manufacturer = ikea 
+
+
+ Dinning Room Table Using Table Blueprint 
+ - color = white
+ - style = italian 
+ - height = 30 inches 
+ - material = black walnut wood 
+ - width = 20 inches 
+ - manufacturer = ikea 
+
+Create a class to define a Person 
+
+Person 
+ - firstname
+ - lastname 
+ - age
+ - hair color 
+ - height 
+ - weight 
+ - middlename 
+ - color 
+ 
+  
+
+
+
+
+

@@ -22,13 +22,13 @@ def display_items():
     print("/// Grocery List ///")
     for index in range(0, len(grocery_items)):
         grocery_item = grocery_items[index]
-        print(f' {index + 1}: {grocery_item["item"]} - ${grocery_item["price"]} - {grocery_item["quantity"]}')
+        print(f' {index + 1}: {grocery_item["store"]} - {grocery_item["item"]} - ${grocery_item["price"]} - {grocery_item["quantity"]}')
 
 def store():
-    grocery_item = grocery_items[store]
+    sel_store = input("Enter store name for shopping list: ")
+    grocery_item = grocery_items[sel_store]
     print(f'{grocery_item["store"]} ')
-    # sel_store = input("Enter store name for shopping list: ")
-    # print(sel_store)
+    print(sel_store)
 
 
 while True:
