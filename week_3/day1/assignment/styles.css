@@ -1,0 +1,21 @@
+.product {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    position: relative;
+    top: 0;
+    left: 0;
+
+
+}
+
+.deal {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
