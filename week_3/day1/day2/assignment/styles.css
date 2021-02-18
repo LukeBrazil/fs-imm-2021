@@ -1,0 +1,72 @@
+.wrapper {
+    margin: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    border: 5px solid lightblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20px 1fr 20px;
+    grid-template-areas: "top top" "one one" "two three" "four five" "six six";
+    gap: 5px;
+    background-color: lightblue;
+}
+
+.top {
+    grid-area: top;
+    font-weight: bold;
+}
+
+.one {
+    background-color: seagreen;
+    color: yellow;
+    text-transform: uppercase;
+    grid-area: one;
+}
+
+.two {
+    background-color: seagreen;
+    color: yellow;
+    grid-area: two;
+    text-transform: uppercase;
+
+}
+
+.three {
+    background-color: seagreen;
+    color: yellow;
+    grid-area: three;
+    text-transform: uppercase;
+
+}
+
+.four {
+    background-color: seagreen;
+    color: yellow;
+    grid-area: four;
+    text-transform: uppercase;
+
+}
+
+.five {
+    background-color: seagreen;
+    color: yellow;
+    grid-area: five;
+    text-transform: uppercase;
+
+}
+
+.six {
+    background-color: seagreen;
+    color: yellow;
+    grid-area: six;
+    text-transform: uppercase;
+
+}
+
+.container {
+    text-align: center;
+    width: 80vh;
+}
