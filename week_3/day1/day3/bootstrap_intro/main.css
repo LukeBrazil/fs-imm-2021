@@ -1,0 +1,29 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #F2F6E9;
+}
+
+.navbar{
+    background:#6ab446
+}
+
+.nav-link,
+.navbar-brand{
+    color:#fff;
+    cursor: pointer;
+}
+.nav-link:hover{
+    color:#000;
+}
+
+.navbar-collapse{
+    justify-content: flex-end;
+}
+
+.header{
+    background-image: url(https://wallpaperaccess.com/full/86288.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
