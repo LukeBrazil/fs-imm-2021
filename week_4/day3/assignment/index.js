@@ -7,6 +7,11 @@ let startersArray = dishes.filter((dish) => dish.course === 'Starters')
 let entreesArray = dishes.filter((dish) => dish.course === 'Entrees')
 let dessertArray = dishes.filter((dish) => dish.course === 'Desserts')
 
+let x = dishes.filter(function(dish) {
+    return dish.course === 'Entrees'
+})
+
+
 startersButton.addEventListener('click', function() {
     contentDiv.innerHTML = ''
     startersArray.map((starter) => {

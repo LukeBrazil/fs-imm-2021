@@ -12,6 +12,22 @@ h5 {
     margin: 1em;
 }
 
-/* .content {
-    margin: 1em;
-} */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: inherit;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+button {
+    margin: 10px;
+    color: yellow;
+    background: gray;
+}
