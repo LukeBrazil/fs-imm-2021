@@ -7,16 +7,12 @@ let startersArray = dishes.filter((dish) => dish.course === 'Starters')
 let entreesArray = dishes.filter((dish) => dish.course === 'Entrees')
 let dessertArray = dishes.filter((dish) => dish.course === 'Desserts')
 
-let x = dishes.filter(function(dish) {
-    return dish.course === 'Entrees'
-})
-
 
 startersButton.addEventListener('click', function() {
     contentDiv.innerHTML = ''
     startersArray.map((starter) => {
         let starters = `
-        <div>
+        <div class='dish'>
         <img class='img' src="${starter.imageURL}"></img>
         <h5><b>${starter.title}</b></h5>
         <h5>${starter.description}</h5>
@@ -31,7 +27,7 @@ entreesButton.addEventListener('click', function() {
     contentDiv.innerHTML = ''
     entreesArray.map((entree) => {
         let entrees = `
-        <div>
+        <div class='dish'>
         <img class='img' src="${entree.imageURL}"></img>
         <h5><b>${entree.title}</b></h5>
         <h5>${entree.description}</h5>
@@ -46,7 +42,7 @@ dessertButton.addEventListener('click', function() {
     contentDiv.innerHTML = ''
     dessertArray.map((dessert) => {
         let desserts = `
-        <div>
+        <div class='dish'>
         <img class='img' src="${dessert.imageURL}"></img>
         <h5><b>${dessert.title}</b></h5>
         <h5>${dessert.description}</h5>
