@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+}
+
+.image > img {
+    border: 2px solid red;
+    height: 200px;
+    width: 250px;
+}
