@@ -4,19 +4,6 @@ totalResults: 36,
 articles: [
 {
 source: {
-id: "bloomberg",
-name: "Bloomberg"
-},
-author: null,
-title: "ECB Unleashes Support Package for Economy Threatened by Slowdown - Bloomberg",
-description: null,
-url: "https://www.bloomberg.com/news/articles/2019-03-07/ecb-offers-more-loans-to-banks-as-slowdown-derails-policy-exit",
-urlToImage: null,
-publishedAt: "2019-03-07T12:50:00Z",
-content: "To continue, please click the box below to let us know you're not a robot."
-},
-{
-source: {
 id: null,
 name: "Thisisinsider.com"
 },
