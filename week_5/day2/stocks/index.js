@@ -34,14 +34,17 @@ function showStocks() {
     let response = JSON.parse(this.responseText);
     let stocks = response.map((item) => {
       return `
-        <p>${item.symbol}</p>
-        <p>${item.title}</p>
-        <p>$${item.price}</p>
-        <p>${item.quantity}</p>
+        <ul style='border: 1px solid black; width: 10rem'>
+        <li>${item.symbol}</li>
+        <li>${item.title}</li>
+        <li>$${item.price}</li>
+        <li>${item.quantity}</li>
+        </ul>
             `;
         
     });
     stockDisplay.innerHTML = stocks.join('')
+    
   };
   request.open("GET", "https://endurable-bead-polo.glitch.me/stocks");
   request.send();
@@ -49,8 +52,9 @@ function showStocks() {
 
 buyStockBtn.addEventListener("click", function () {
   buyStock();
+  
 });
 
-showStocksBtn.addEventListener("click", function () {
-  showStocks();
-});
+window.addEventListener('load', function() {
+    showStocks()
+})

@@ -7,14 +7,16 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="header" style='display: flex; justify-content: space-evenly; margin: 25px 35px 5px 35px'>
     <input type="text" name="" id="titleTextbox" placeholder="Title">
     <input type="text" name="" id="symbolTextbox" placeholder="Symbol">
     <input type="text" name="" id="priceTextbox" placeholder="Price">
     <input type="text" name="" id="quantityTextbox" placeholder="Quantity">
     <button id="buyStockBtn">Buy Stock</button>
-    <button id="showStocksBtn">Show Stocks</button>
+    </div>
+    
 
-    <div id="stock-display">
+    <div id="stock-display" style="border: 1px solid black; margin: 2rem; display: flex; flex-wrap: wrap; justify-content: space-evenly">
         
     </div>
     <script src="./index.js"></script>
