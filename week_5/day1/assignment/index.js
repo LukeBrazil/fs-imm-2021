@@ -27,7 +27,8 @@ function displayMovies() {
 }
 
 function showMovieItem(imdbID) {
-    let url = `http://www.omdbapi.com/?i=${imdbID}&apikey=ec39d38f`
+    let url = `
+    `
     let request = new XMLHttpRequest
     request.open('GET', url)
     request.send()
