@@ -1,48 +1,48 @@
-const coffeeEmailInput = document.getElementById("coffeeEmail");
-const coffeeTypeInput = document.getElementById("coffeeType");
-const coffeeSizeInput = document.getElementById("coffeeSize");
-const coffeePriceInput = document.getElementById("coffeePrice");
-const newCoffeeOrderBtn = document.getElementById("newCoffeeOrderBtn");
-const displayOrders = document.getElementById('displayOrders');
-const getOrderByEmailDiv = document.getElementById('getOrderByEmail');
-const orderEmailInput = document.getElementById('orderEmail');
-const orderByEmailBtn = document.getElementById('orderByEmailBtn');
-const deleteOrderByEmailBtn = document.getElementById('deleteOrderByEmailBtn');
+const coffeeEmailInput = document.getElementById("coffeeEmail"),
+  coffeeTypeInput = document.getElementById("coffeeType"),
+  coffeeSizeInput = document.getElementById("coffeeSize"),
+  coffeePriceInput = document.getElementById("coffeePrice"),
+  newCoffeeOrderBtn = document.getElementById("newCoffeeOrderBtn"),
+  displayOrders = document.getElementById("displayOrders"),
+  getOrderByEmailDiv = document.getElementById("getOrderByEmail"),
+  orderEmailInput = document.getElementById("orderEmail"),
+  orderByEmailBtn = document.getElementById("orderByEmailBtn"),
+  deleteOrderByEmailBtn = document.getElementById("deleteOrderByEmailBtn");
 
 const ordersUrl = "https://troubled-peaceful-hell.glitch.me/orders";
 
 const newCoffeOrder = () => {
-    const coffeeEmail = coffeeEmailInput.value;
-    const coffeeType = coffeeTypeInput.value;
-    const coffeeSize = coffeeSizeInput.value;
-    const coffeePrice = coffeePriceInput.value;
-    let request = new XMLHttpRequest
+  const coffeeEmail = coffeeEmailInput.value;
+  const coffeeType = coffeeTypeInput.value;
+  const coffeeSize = coffeeSizeInput.value;
+  const coffeePrice = coffeePriceInput.value;
+  let request = new XMLHttpRequest();
 
-    const requestParams = {
-        email: coffeeEmail,
-        type: coffeeType,
-        size: coffeeSize,
-        price: parseInt(coffeePrice)
-    }
-
-    request.onload = function () {
-        if (request.status == 200) {
-            showOrders()
-        } else {
-            alert(`POST DIDNT GO THROUGH!!! STATUS: ${request.statusText}`)
-        }
-    }
-    request.open('POST', ordersUrl)
-    request.setRequestHeader('Content-Type', 'application/json')
-    request.send(JSON.stringify(requestParams))
-}
-
-const showOrdersByEmail = () => {
-    let request = new XMLHttpRequest();
-    const orderEmail = orderEmailInput.value
+  const requestParams = {
+    email: coffeeEmail,
+    type: coffeeType,
+    size: coffeeSize,
+    price: parseInt(coffeePrice),
+  };
 
   request.onload = function () {
-    let response = JSON.parse(this.responseText)
+    if (request.status == 200) {
+      showOrders();
+    } else {
+      alert(`POST DIDNT GO THROUGH!!! STATUS: ${request.statusText}`);
+    }
+  };
+  request.open("POST", ordersUrl);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send(JSON.stringify(requestParams));
+};
+
+const showOrdersByEmail = () => {
+  let request = new XMLHttpRequest();
+  const orderEmail = orderEmailInput.value;
+
+  request.onload = function () {
+    let response = JSON.parse(this.responseText);
     let order = `
     <div class='orderItem'>
         <ul>
@@ -53,42 +53,47 @@ const showOrdersByEmail = () => {
             <button onClick=showOrders()>Go Back to all Orders</button>
         </ul>
     </div>
-    `
-    displayOrders.innerHTML = order
+    `;
+    displayOrders.innerHTML = order;
     request.onload = function () {
-        if (request.status == 200) {
-            showOrders()
-        } else {
-            alert(`POST DIDNT GO THROUGH!!! STATUS: ${request.statusText}`)
-        }
-    }
+      if (request.status == 200) {
+        showOrders();
+      } else {
+        alert(`POST DIDNT GO THROUGH!!! STATUS: ${request.statusText}`);
+      }
+    };
   };
 
-  request.open("GET", `https://troubled-peaceful-hell.glitch.me/orders/${orderEmail}`);
+  request.open(
+    "GET",
+    `https://troubled-peaceful-hell.glitch.me/orders/${orderEmail}`
+  );
   request.send();
-}
+};
 
 const deleteOrderByEmail = () => {
-    let request = new XMLHttpRequest();
-    const orderEmail = orderEmailInput.value
+  let request = new XMLHttpRequest();
+  const orderEmail = orderEmailInput.value;
 
-    request.onload = function() {
-        if (request.status == 200) {
-            showOrders()
-        } else {
-            alert(`POST DIDNT GO THROUGH!!! STATUS: ${request.statusText}`)
-        }
+  request.onload = function () {
+    if (request.status == 200) {
+      showOrders();
+    } else {
+      alert(`POST DIDNT GO THROUGH!!! STATUS: ${request.statusText}`);
     }
-    request.open("DELETE", `https://troubled-peaceful-hell.glitch.me/orders/${orderEmail}`);
-    request.send();
-}
+  };
+  request.open(
+    "DELETE",
+    `https://troubled-peaceful-hell.glitch.me/orders/${orderEmail}`
+  );
+  request.send();
+};
 
 const showOrders = () => {
-    let request = new XMLHttpRequest();
-  
-    
-    request.onload = function () {
-    let response = JSON.parse(this.responseText)
+  let request = new XMLHttpRequest();
+
+  request.onload = function () {
+    let response = JSON.parse(this.responseText);
     let orders = response.map((order) => {
       return `
             <div class='orderItem'>
@@ -101,29 +106,25 @@ const showOrders = () => {
             </div>
             `;
     });
-    displayOrders.innerHTML = orders.join('')
+    displayOrders.innerHTML = orders.join("");
   };
 
   request.open("GET", ordersUrl);
   request.send();
-}
+};
 
-newCoffeeOrderBtn.addEventListener('click', function() {
-    newCoffeOrder()
-})
-
-
-orderByEmailBtn.addEventListener('click', function() {
-    showOrdersByEmail()
-})
-
-deleteOrderByEmailBtn.addEventListener('click', function() {
-    deleteOrderByEmail()
-})
-
-
-window.addEventListener("load", function () {
-  showOrders()
+newCoffeeOrderBtn.addEventListener("click", function () {
+  newCoffeOrder();
 });
 
+orderByEmailBtn.addEventListener("click", function () {
+  showOrdersByEmail();
+});
 
+deleteOrderByEmailBtn.addEventListener("click", function () {
+  deleteOrderByEmail();
+});
+
+window.addEventListener("load", function () {
+  showOrders();
+});
