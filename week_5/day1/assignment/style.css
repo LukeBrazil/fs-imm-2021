@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+nav {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+}
+
+.movie-list {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(to right top, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5));
+    padding: 25px 25px 25px 25px;
+    flex-wrap: wrap;
+}
+
+.movie-list img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.movie-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.selected-movie {
+    width: 100%;
+    height: 50vh;
+    background: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie {
+    text-align: center;
+}

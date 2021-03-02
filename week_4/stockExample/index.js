@@ -1,20 +1,23 @@
 const inputBox = document.getElementById('stockQuote');
 const btnSubmit = document.getElementById('btnSubmit');
-const content = document.getElementById('content')
+const content = document.getElementById('content');
 
 
 
 btnSubmit.addEventListener('click', function() {
     let symbol = inputBox.value
-    let stock = getStockQuote(symbol)
-    let message = `${stock.name}, Price: $${stock.price}`
-    content.innerHTML = message
+    getStockQuote(symbol)
+    let intervalId = window.setInterval(() => {
+        getStockQuote(symbol)
+    }, 3000)
 })
 
 function getStockQuote(symbol) {
+    content.innerHTML = ''
     let stock = quotes[symbol]
     stock.price = getRandomInt(100,500)
-    return quotes[symbol]
+    let message = `${stock.name}, Price: $${stock.price}`
+    content.innerHTML = message
   }
   
   
