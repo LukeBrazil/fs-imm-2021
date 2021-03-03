@@ -47,6 +47,7 @@ function showPosition(position) {
     .then((response) => {
         return response.json()
     }).then((data) => {
+        console.log(data)
         displayCurrentLocationWeather(data)
     })
   
