@@ -31,7 +31,7 @@ ul {
 .displayOrders {
     display: flex;
     width: 100%;
-    margin: 20px 50px 20px 50px;
+    padding-top: 20px;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -40,11 +40,12 @@ ul {
 
 .orderItem {
     display: flex;
-    width: 15rem;
+    width: 20rem;
     border: 1px solid black;
     word-wrap: break-word;
     text-align: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 
