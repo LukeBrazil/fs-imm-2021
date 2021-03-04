@@ -1,15 +1,17 @@
 const cityInput = document.getElementById("cityInput");
 const btnSubmit = document.getElementById("btnSubmit");
 const cityWeather = document.getElementById("cityWeather");
-const currentLocationWeather = document.getElementById('currentLocationWeather')
-const apiKey = 'e58d1190d081f10a3da11806b105613b'
-
+const currentLocationWeather = document.getElementById(
+  "currentLocationWeather"
+);
+const apiKey = "e58d1190d081f10a3da11806b105613b";
 
 function getCityWeather() {
   let city = cityInput.value;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=imperial`;
   fetch(url)
     .then((response) => {
+      console.log(url);
       return response.json();
     })
     .then((data) => {
@@ -29,33 +31,30 @@ function displayCityWeather(data) {
   cityWeather.innerHTML = weatherInfo;
 }
 
-
-
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    currentLocationWeather.innerHTML = "Geolocation is not supported by this browser.";
+    currentLocationWeather.innerHTML =
+      "Geolocation is not supported by this browser.";
   }
 }
 
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
   fetch(url)
     .then((response) => {
-        return response.json()
-    }).then((data) => {
-        console.log(data)
-        displayCurrentLocationWeather(data)
+      return response.json();
     })
-  
+    .then((data) => {
+      displayCurrentLocationWeather(data);
+    });
 }
 
-
 function displayCurrentLocationWeather(data) {
-    let weatherInfo = `
+  let weatherInfo = `
     <ul>
     <li>City: ${data.name}</li>
     <li>High: ${data.main.temp_max} F</li>
@@ -63,13 +62,13 @@ function displayCurrentLocationWeather(data) {
     <li>Pressure: ${data.main.pressure}</li>
     </ul>
     `;
-    currentLocationWeather.innerHTML = weatherInfo;
+  currentLocationWeather.innerHTML = weatherInfo;
 }
 
-window.addEventListener('load', function() {
-    getLocation()
-})
+window.addEventListener("load", function () {
+  getLocation();
+});
 
 btnSubmit.addEventListener("click", function () {
-    getCityWeather();
-  });
+  getCityWeather();
+});
