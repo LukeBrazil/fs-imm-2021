@@ -84,7 +84,6 @@ function addItem(id) {
     });
 }
 
-
 function deleteItem(storeID, docID) {
   storesRef
     .doc(storeID)
@@ -96,6 +95,6 @@ function deleteItem(storeID, docID) {
     });
 }
 
-addGroceryStoreBtn.addEventListener("click", function () {createStore()});
+addGroceryStoreBtn.addEventListener("click", () => {createStore()});
 
-window.addEventListener("load", function () {getAllStores()});
+window.addEventListener("load", () => {getAllStores()});
