@@ -13,6 +13,7 @@ todoBtn.addEventListener("click", function () {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      id: Math.floor(100000 + Math.random() * 900000),
       title: title,
       priority: priority,
       date: new Date(),
@@ -32,9 +33,18 @@ function fetchTodos() {
       data.map((item) => {
         let todo = `<li>${item.title}</li>
                     <li>${item.priority}</li>
-                    <li>${item.date}</li>    
+                    <li>${item.date}</li>
+                    <button onClick="deleteTodo('${item.id}')">X</button>    
         `;
-        todosUL.insertAdjacentHTML('beforeend', todo);
+        todosUL.insertAdjacentHTML("beforeend", todo);
       });
     });
 }
+
+function deleteTodo(id) {
+  fetch(`http://localhost:3000/todos/${id}`, {
+    method: "DELETE",
+  });
+}
+
+fetchTodos();

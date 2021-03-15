@@ -33,10 +33,12 @@ app.post('/name', (req, res) => {
 })
 
 app.post('/todo', (req,res) => {
+    let id = req.body.id
     let title = req.body.title
     let priority = req.body.priority
     let date = req.body.date
     todos.push({
+        'id': id,
         "title": title,
         "priority": priority,
         "date": date
@@ -46,6 +48,13 @@ app.post('/todo', (req,res) => {
 
 app.get('/todos', (req, res) => {
     res.json(todos)
+})
+
+app.delete('/todos/:id', (req,res) => {
+    const id = req.params.id
+    const todo = todos.findIndex(item => item.id == id)
+    todos.splice(todo, 1)
+    console.log('TODOS', todos)
 })
 
 app.listen(3000, () => {
