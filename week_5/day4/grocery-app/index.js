@@ -2,10 +2,10 @@ const groceryStoreText = document.getElementById("groceryStoreText");
 const addGroceryStoreBtn = document.getElementById("addGroceryStoreBtn");
 const showStoresUL = document.getElementById("showStoresUL");
 const groceryStoreAddressText = document.getElementById("groceryStoreAddressText");
-const storesRef = db.collection("stores");
+const storesRef = db.collection('stores')
 
 function getAllStores() {
-  storesRef
+    db.collection("stores")
     .get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
@@ -48,7 +48,7 @@ function deleteStore(id) {
     .doc(id)
     .delete()
     .then(() => {
-      window.location.reload();
+      window.location.reload()
     });
 }
 
