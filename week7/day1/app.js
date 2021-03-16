@@ -22,8 +22,8 @@ todoBtn.addEventListener("click", function () {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-    })
-    .then(fetchTodos());
+      fetchTodos();
+    });
 });
 
 function fetchTodos() {
