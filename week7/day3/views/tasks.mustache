@@ -1,0 +1,15 @@
+<html>
+    <body>
+    <h1>Tasks</h1>
+    <h3>Total Number of Tasks: {{totalTasks}}</h3>
+    <a href='/addTasks'>Add Task</a>
+    <ul>
+    {{#allTasks}}
+    
+        <li>{{title}} : {{priority}}</li>
+
+    {{/allTasks}}
+    </ul>
+    
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+    <body>
+
+
+    <h1>Add Trip</h1>
+    <form action="/trips" method='POST'>
+        <input type="text" placeholder="title" name='title'>
+        <input type="date" placeholder="depart" name='depart'>
+        <input type="date" placeholder="return" name='return'>
+        <button>Add Trip</button>
+    </form>
+
+    <div>
+    <h1>Trips</h1>
+    <ul>
+    {{#allTrips}}
+        <li>
+        <form action='/trips-delete' method='POST'>
+        <h3>{{title}}</h3>
+        <h4>Depart: {{depart}}</h4>
+        <h4>Return :{{return}}</h4>
+        <input type='hidden' name='id' value={{id}}></input>
+        <button>Delete Trip</button>
+        </form>
+        </li>
+    {{/allTrips}}
+    </ul>
+    
+    </div>
+    <script>
+    function deleteTrip(id) {
+        fetch('http://localhost:3000/trips', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: id
+            })
+        })
+    }
+    </script>
+    </body>
+</html>
+
