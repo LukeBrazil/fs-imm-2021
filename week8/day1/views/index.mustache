@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+
+    <form action="/book-post" method='POST'>
+    <input type="text" name='title' placeholder='title'>
+    <input type="text" name='isbn' placeholder='isbn'>
+    <input type="text" name='author' placeholder='author'>
+    <button>Send</button>
+    </form>
+    {{#books}}
+    <form action="/delete-book" method='POST'>
+        <div>
+            <ul>
+                <li>
+                    <h3>Title: {{title}}</h3>
+                    <h3>Author: {{author}}</h3>
+                    <h3>ISBN: {{isbn}}</h3>
+                    <button>Delete</button>
+                    <input type="hidden" name='isbn' value='{{isbn}}'>
+                </li>
+            </ul>
+        </div>
+    </form>
+    {{/books}}
+</body>
+</html>
