@@ -1,7 +1,13 @@
-<html>
-    <body>
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
     <h1>Add Trip</h1>
     <form action="/trips" method='POST'>
         <input type="text" placeholder="title" name='title'>
@@ -15,7 +21,7 @@
     <ul>
     {{#allTrips}}
         <li>
-        <form action='/trips-delete' method='POST'>
+        <form action='/trips-delete' method='POST' c>
         <h3>{{title}}</h3>
         <h4>Depart: {{depart}}</h4>
         <h4>Return :{{return}}</h4>
@@ -25,21 +31,8 @@
         </li>
     {{/allTrips}}
     </ul>
-    
     </div>
-    <script>
-    function deleteTrip(id) {
-        fetch('http://localhost:3000/trips', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: id
-            })
-        })
-    }
-    </script>
-    </body>
+</body>
 </html>
+
 

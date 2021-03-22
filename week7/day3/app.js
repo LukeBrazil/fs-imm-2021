@@ -2,9 +2,13 @@ const express = require('express')
 const app = express()
 const mustacheExpress = require('mustache-express')
 const tripsRouter = require('./routes/trips')
+const moviesRouter = require('./routes/movies')
 
 const PORT = 3000
 
+global.trips = []
+
+global.movies = []
 
 app.engine('mustache', mustacheExpress())
 
@@ -15,6 +19,8 @@ app.set('view engine', 'mustache')
 app.use(express.urlencoded())
 
 app.use('/trips', tripsRouter)
+
+app.use('/movies', moviesRouter)
 
 let tasks = [
     {title: 'Wash Car', priority: 'High'},
@@ -50,7 +56,7 @@ app.post('/add-customer', (req,res) => {
 
 
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.render('index', {productName: 'iphone', price: 300})
 })
 

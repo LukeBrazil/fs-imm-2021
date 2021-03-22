@@ -1,7 +1,5 @@
 <html>
     <body>
-
-
     <h1>Add Trip</h1>
     <form action="/trips/trips-post" method='POST'>
         <input type="text" placeholder="title" name='title'>
@@ -17,29 +15,16 @@
         <li>
         <form action='/trips/trips-delete' method='POST'>
         <h3>{{title}}</h3>
+        <a href='/trips/{{title}}'>Trip Name</a>
         <h4>Depart: {{depart}}</h4>
-        <h4>Return :{{return}}</h4>
+        <h4>Return: {{return}}</h4>
         <input type='hidden' name='id' value={{id}}></input>
         <button>Delete Trip</button>
         </form>
         </li>
     {{/allTrips}}
     </ul>
-    
     </div>
-    <script>
-    function deleteTrip(id) {
-        fetch('http://localhost:3000/trips', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: id
-            })
-        })
-    }
-    </script>
     </body>
 </html>
 
