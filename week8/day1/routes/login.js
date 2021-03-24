@@ -1,24 +1,20 @@
 const express = require('express')
-const app = express()
+const router = express.Router()
 const pgp = require('pg-promise')()
-const mustacheExpress = require('mustache-express')
-const blogRouter = require('./routes/blog.js')
 const bcrypt = require('bcryptjs');
-
-
+const jwt = require('jsonwebtoken');
 const session = require('express-session')
 
-app.use(session({
+router.use(session({
     secret: "secret",
     resave: "false",
     saveUninitialized: true
 }))
 
-
 const cn = {
     host: 'localhost',
     port: 5432,
-    database: 'fs-imm-test',
+    database: 'blog',
     user: 'postgres',
     password: 'Baseball13!',
     max: 30 // use up to 30 connections
@@ -28,57 +24,11 @@ const cn = {
 
 const db = pgp(cn)
 
-app.use(express.urlencoded())
-app.use(express.static(__dirname + '/public'))
-
-app.set('views', './views')
-app.set('view engine', 'mustache')
-
-app.engine('mustache', mustacheExpress())
-
-app.use('/blog', blogRouter)
-
-app.get('/', (req, res) => {
-    if (req.session) {
-        console.log("SESSION: ", req.session.userId)
-    } else {
-        console.log('NO SESSION')
-    }
-    db.any('SELECT * FROM books WHERE user_id = $1', [req.session.userId])
-        .then((books) => {
-            res.render('index', { books: books })
-        })
-})
-
-app.post('/book-post', (req, res) => {
-    console.log(req.body)
-    let title = req.body.title
-    let author = req.body.author
-    let isbn = parseInt(req.body.isbn)
-    db.none('INSERT INTO public.books(author, isbn, title, user_id) VALUES($1, $2, $3, $4)', [title, isbn, author, req.session.userId])
-        .then(() => {
-            res.redirect('/')
-        })
-
-})
-
-app.post('/delete-book', (req, res) => {
-    let isbn = req.body.isbn
-    console.log(isbn)
-    console.log()
-    db.none('DELETE FROM public.books WHERE isbn=$1 AND user_id=$2;', [isbn, req.session.userId])
-        .then(() => {
-            res.redirect('/')
-        }).catch((error) => {
-            console.log(error)
-        })
-})
-
-app.get('/login', (req, res) => {
+router.get('/', (req, res) => {
     res.render('login')
 })
 
-app.post('/add-user', async (req, res) => {
+router.post('/add-user', async (req, res) => {
     const username = req.body.username
     const password = req.body.password
     console.log(username, password)
@@ -98,7 +48,7 @@ app.post('/add-user', async (req, res) => {
 
 })
 
-app.post('/login', (req,res) => {
+router.post('/', (req,res) => {
     const username = req.body.username
     const password = req.body.password
     db.one("SELECT user_id, username, password FROM public.users WHERE username = $1;", [username])
@@ -121,6 +71,6 @@ app.post('/login', (req,res) => {
 })
 
 
-app.listen(3006, () => {
-    console.log('SERVER RUNNING')
-})
+
+
+module.exports = router

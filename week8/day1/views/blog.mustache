@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Blog</h1>
+
+    <form action="/blog/add-blog-post" method='POST'>
+    <input type="text" name='title' placeholder='title'>
+    <input type="text" name='body' placeholder='body' class='blog-body'>
+    <button>Send</button>
+    </form>
+    
+    {{#posts}}
+    <form action="/blog/delete-blog-post" method='POST'>
+        <div>
+            <ul>
+                <li>
+                    <h3>Title: {{title}}</h3>
+                    <h3>Body: {{body}}</h3>
+                    <button>Delete</button>
+                    <input type="hidden" name='post_id' value='{{post_id}}'>
+                </li>
+            </ul>
+        </div>
+    </form>
+    {{/posts}}
+</body>
+</html>
