@@ -1,0 +1,21 @@
+img {
+    height: 12rem;
+    width: 12rem
+}
+
+.booksDisplay {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 3rem;
+}
+
+.books {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem
+}
+
