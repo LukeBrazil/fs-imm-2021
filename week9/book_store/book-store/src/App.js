@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './App.css'
+import React, { Component } from 'react';
+import './App.css';
 
 import Books from './components/Books'
 
@@ -10,9 +10,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://raw.githubusercontent.com/benoitvallon/100-best-books/master/books.json')
+    fetch('http://localhost:3001/books')
     .then((response) => response.json())
-    .then((data) => this.setState({books: data}))
+    .then((data) => console.log(data))
   }
   render() {
     return (

@@ -11,10 +11,10 @@ export default class Books extends Component {
        const bookItems = books.map((book, index) => {
            return (
                <div className="books" key={index}>
-                   <h6>{book.title}</h6>
-                   <p>Author: {book.author}</p>
-                   <p>Language: {book.language}</p>
-                   <img src={`https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/${book.imageLink}?raw=true`}></img>
+                   <h6>{book.name}</h6>
+                   <p>Author: {book.genre}</p>
+                   {/* <p>Language: {book.language}</p>
+                   <img src={`https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/${book.imageLink}?raw=true`}></img> */}
                </div>
            )
        })
