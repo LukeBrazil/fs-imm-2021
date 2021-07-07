@@ -7,13 +7,21 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import reducer from './store/reducer';
 import { Provider } from 'react-redux';
+import {BrowserRouter, Route, Switch } from 'react-router-dom'
+import Counter from './components/Counter';
+import BaseLayout from './components/BaseLayout';
 
 const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>
-      <App />
+      <BaseLayout>
+        <BrowserRouter>
+          <Route exact path = '/'  component = {App} />
+          <Route path = '/counter' component = {Counter} />
+        </BrowserRouter>
+      </BaseLayout>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

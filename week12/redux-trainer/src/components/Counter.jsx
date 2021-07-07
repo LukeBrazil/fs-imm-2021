@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import * as actionCreators from '../store/creators/actionCreator'
 
 function Counter(props) {
     const [value, setValue] = useState(0)
@@ -7,7 +8,7 @@ function Counter(props) {
     const handleChange = (e) => {
         setValue(parseInt(e.target.value))
     }
-
+    const [username, setUsername] = useState('')
     const handleSubmit = (e) => {
         props.onAdd(value)
     }
@@ -27,6 +28,7 @@ function Counter(props) {
             <button onClick = {handleSubmit} >Add to counter</button>
             <button onClick = {handlePlus}>+</button>
             <button onClick = {handleMinus}>-</button>
+            <img src={`https://picsum.photos/200}`} alt=""/>
         </div>
     )
 }
@@ -40,9 +42,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onAdd: (value) => dispatch({type: 'ADD', payload: value}),
-        onPlus: () => dispatch({type: 'PLUS'}),
-        onMinus: () => dispatch({type: 'MINUS'})
+        onAdd: (value) => dispatch(actionCreators.onAdd(value)),
+        onPlus: () => dispatch(actionCreators.onPlus()),
+        onMinus: () => dispatch(actionCreators.onMinus())
     }
 }
 
